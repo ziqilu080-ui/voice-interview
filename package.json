@@ -1,0 +1,13 @@
+{
+  "name": "voice-interview",
+  "version": "1.0.0",
+  "description": "Voice-based AI interview practice using Claude API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
