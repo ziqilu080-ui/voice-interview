@@ -371,18 +371,211 @@
     .form-row { flex-direction: column; gap: 0; }
     .setup-panel { padding: 20px; }
   }
+
+  /* ============ Global Hidden ============ */
+  .hidden { display: none !important; }
+
+  /* ============ Landing View ============ */
+  .landing {
+    width: 100%; max-width: 800px; height: 100dvh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .landing-header { margin-bottom: 48px; }
+  .landing-header h1 {
+    font-size: 32px; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .landing-header p {
+    font-size: 16px; color: var(--text2);
+  }
+  .landing-cards {
+    display: flex; gap: 24px;
+    width: 100%; max-width: 700px;
+  }
+  .landing-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    text-align: left;
+  }
+  .landing-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(108,92,231,0.15);
+  }
+  .landing-card .card-icon { font-size: 40px; margin-bottom: 16px; }
+  .landing-card h2 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .landing-card p { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; }
+  .landing-card .card-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(108,92,231,0.15);
+    color: var(--accent2);
+  }
+  .landing-footer {
+    margin-top: 40px;
+    font-size: 12px; color: var(--text2);
+  }
+  .landing-footer a { color: var(--accent2); text-decoration: none; }
+  .landing-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .landing-cards { flex-direction: column; }
+    .landing-card { padding: 24px 20px; }
+    .landing-header h1 { font-size: 26px; }
+  }
+
+  /* ============ JD View ============ */
+  .jd-view {
+    width: 100%; max-width: 800px; height: 100dvh;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+    padding: 0;
+  }
+  .jd-input-panel {
+    padding: 32px 28px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .jd-input-panel h2 { font-size: 22px; margin-bottom: 4px; }
+  .jd-input-panel > p { font-size: 13px; color: var(--text2); margin-bottom: 20px; }
+  .jd-input-panel .btn-accent {
+    width: 100%; padding: 12px; font-size: 15px; justify-content: center;
+  }
+  .jd-result {
+    flex: 1; overflow-y: auto;
+    padding: 28px;
+  }
+  .jd-result h3 {
+    font-size: 16px; font-weight: 700;
+    margin: 24px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .jd-result h3:first-child { margin-top: 0; }
+  .jd-result p { font-size: 14px; line-height: 1.7; margin-bottom: 10px; }
+  .jd-result ul { padding-left: 20px; margin-bottom: 12px; }
+  .jd-result li { font-size: 14px; line-height: 1.6; margin-bottom: 6px; }
+  .jd-result table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; margin-bottom: 16px;
+  }
+  .jd-result th {
+    text-align: left; padding: 8px 10px;
+    background: var(--surface2);
+    font-weight: 600; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border);
+  }
+  .jd-result td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .jd-result .question-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+  .jd-result .question-block .q-title {
+    font-weight: 700; font-size: 14px;
+    margin-bottom: 6px;
+    color: var(--accent2);
+  }
+  .jd-result .question-block .q-meta {
+    font-size: 11px; color: var(--text2);
+    margin-bottom: 8px;
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+  .jd-result .question-block .q-meta span {
+    background: var(--surface2);
+    padding: 2px 8px; border-radius: 4px;
+  }
+  .jd-result .question-block .q-points {
+    font-size: 13px; line-height: 1.6;
+  }
+  .jd-result .question-block .q-pitfall {
+    font-size: 12px; color: var(--red);
+    margin-top: 6px;
+    padding: 6px 10px;
+    background: rgba(255,107,107,0.08);
+    border-radius: 4px;
+    border-left: 2px solid var(--red);
+  }
+  .jd-back-btn {
+    background: none; border: none;
+    color: var(--text2); cursor: pointer;
+    font-size: 20px; padding: 4px 8px;
+    transition: color 0.15s;
+  }
+  .jd-back-btn:hover { color: var(--text); }
+
+  /* Back button in main header */
+  .back-btn {
+    display: none;
+    background: none; border: none;
+    color: var(--text2); cursor: pointer;
+    font-size: 18px; padding: 4px 6px;
+    margin-right: 6px;
+    transition: color 0.15s;
+  }
+  .back-btn:hover { color: var(--text); }
+  .back-btn.visible { display: flex; }
 </style>
 </head>
 <body>
 
-<div class="app">
+<!-- ==================== LANDING VIEW ==================== -->
+<div id="landing-view" class="landing">
+  <div class="landing-header">
+    <h1>🎙️ 面试助手</h1>
+    <p>AI 驱动的面试准备工具，帮你拿下心仪 Offer</p>
+  </div>
+  <div class="landing-cards">
+    <div class="landing-card" onclick="openJDView()">
+      <div class="card-icon">📋</div>
+      <h2>JD 拆解</h2>
+      <p>上传岗位 JD，AI 深度拆解考察要点，生成可能面试题和回答维度，精准准备每一轮</p>
+      <span class="card-tag">文字分析</span>
+    </div>
+    <div class="landing-card" onclick="openInterviewView()">
+      <div class="card-icon">🎤</div>
+      <h2>语音模拟面试</h2>
+      <p>AI 面试官语音提问，模拟真实面试场景，深度追问 + 逐题评估 + 能力维度打分</p>
+      <span class="card-tag">语音对话</span>
+    </div>
+  </div>
+  <div class="landing-footer">
+    需要 API Key · 支持 <a href="https://platform.deepseek.com" target="_blank">DeepSeek</a> / <a href="https://console.anthropic.com" target="_blank">Anthropic</a>
+  </div>
+</div>
+
+<!-- ==================== MAIN APP (面试) ==================== -->
+<div class="app hidden">
   <!-- Header -->
   <div class="header">
     <div class="header-left">
+      <button class="back-btn" id="backBtn" onclick="goBackToLanding()" title="返回首页">←</button>
       <div class="logo">🎙️</div>
       <div>
-        <div class="header-title">语音面试官</div>
-        <div class="header-subtitle">AI-Powered Voice Interview</div>
+        <div class="header-title" id="headerTitle">语音面试官</div>
+        <div class="header-subtitle" id="headerSubtitle">AI-Powered Voice Interview</div>
       </div>
     </div>
     <div class="header-right">
@@ -525,12 +718,41 @@
   </div>
 </div>
 
+<!-- ==================== JD ANALYSIS VIEW ==================== -->
+<div id="jd-view" class="jd-view hidden">
+  <div class="jd-input-panel">
+    <h2>📋 JD 拆解</h2>
+    <p>粘贴岗位 JD，AI 帮你深度拆解考察重点，生成可能面试题和回答方向</p>
+    <div class="form-row">
+      <div class="form-group">
+        <label>🏢 公司名称（选填）</label>
+        <input type="text" id="jdCompany" placeholder="如：字节跳动">
+      </div>
+      <div class="form-group">
+        <label>💼 岗位名称（选填）</label>
+        <input type="text" id="jdRoleInput" placeholder="如：产品经理">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>📄 岗位 JD</label>
+      <textarea id="jdContent" rows="12" placeholder="粘贴完整的岗位 JD 描述...&#10;&#10;例如：&#10;【岗位职责】&#10;1. 负责XX产品的需求分析和产品规划...&#10;2. ...&#10;&#10;【任职要求】&#10;1. 本科及以上学历，3年以上产品经验...&#10;2. ..."></textarea>
+    </div>
+    <button class="btn btn-accent" onclick="analyzeJD()" id="jdAnalyzeBtn">🔍 开始拆解</button>
+    <div id="jdLoading" class="hidden" style="text-align:center;padding:24px;color:var(--text2);">
+      正在深度拆解 JD... ⏳<br><small>AI 正在分析岗位要点、生成面试题和回答方向</small>
+    </div>
+    <div id="jdError" class="hidden" style="text-align:center;padding:16px;color:var(--red);"></div>
+  </div>
+  <div id="jdResult" class="jd-result hidden"></div>
+</div>
+
 <!-- Toast Container -->
 <div id="toastContainer"></div>
 
 <script>
 // ==================== GLOBAL STATE ====================
 const STATE = {
+  currentView: 'landing',  // 'landing' | 'jd' | 'interview'
   apiKey: '',
   provider: 'deepseek',  // 'deepseek' | 'anthropic'
   company: '',
@@ -585,21 +807,15 @@ function init() {
     document.getElementById('browserWarning').classList.add('chrome-supported');
   }
 
-  // Check if setup is needed
-  if (!STATE.apiKey || !STATE.company || !STATE.role) {
-    document.getElementById('setupOverlay').classList.remove('hidden');
-    updateStatus('idle', '请先设置面试参数');
-  } else {
-    updateInfoBar();
-    updateStatus('idle', '就绪 - 点击麦克风开始回答');
-  }
-
   // Init speech recognition
   initSpeechRecognition();
 
   // Init text input state
   updateSendButton();
   document.getElementById('textInput').addEventListener('input', updateSendButton);
+
+  // Show landing page by default
+  switchView('landing');
 }
 
 function updateSendButton() {
@@ -1438,6 +1654,374 @@ document.addEventListener('keydown', (e) => {
     document.getElementById('setupOverlay').classList.add('hidden');
   }
 });
+
+// ==================== VIEW MANAGEMENT ====================
+function switchView(viewName) {
+  STATE.currentView = viewName;
+
+  const landing = document.getElementById('landing-view');
+  const app = document.querySelector('.app');
+  const jdView = document.getElementById('jd-view');
+  const backBtn = document.getElementById('backBtn');
+  const setupOverlay = document.getElementById('setupOverlay');
+
+  // Hide all first
+  landing.classList.add('hidden');
+  app.classList.add('hidden');
+  jdView.classList.add('hidden');
+  setupOverlay.classList.add('hidden');
+  backBtn.classList.remove('visible');
+
+  switch (viewName) {
+    case 'landing':
+      landing.classList.remove('hidden');
+      break;
+
+    case 'jd':
+      jdView.classList.remove('hidden');
+      backBtn.classList.add('visible');
+      document.getElementById('headerTitle').textContent = 'JD 拆解';
+      document.getElementById('headerSubtitle').textContent = 'AI-Powered JD Analysis';
+      break;
+
+    case 'interview':
+      app.classList.remove('hidden');
+      backBtn.classList.add('visible');
+      document.getElementById('headerTitle').textContent = '语音面试官';
+      document.getElementById('headerSubtitle').textContent = 'AI-Powered Voice Interview';
+
+      // Check if setup is needed
+      if (!STATE.apiKey || !STATE.company || !STATE.role) {
+        setupOverlay.classList.remove('hidden');
+        updateStatus('idle', '请先设置面试参数');
+      } else {
+        updateInfoBar();
+        updateStatus('idle', '就绪 - 点击麦克风开始回答');
+        if (STATE.conversation.length === 0) {
+          renderConversation();
+        }
+      }
+      break;
+  }
+}
+
+function openJDView() {
+  // Check API key
+  if (!STATE.apiKey) {
+    showToast('请先在设置中配置 API Key', 'error');
+    // Navigate to interview briefly to set up, then come back
+    document.querySelector('.app').classList.remove('hidden');
+    document.getElementById('setupOverlay').classList.remove('hidden');
+    document.getElementById('backBtn').classList.add('visible');
+    document.getElementById('landing-view').classList.add('hidden');
+    document.getElementById('headerTitle').textContent = '语音面试官';
+    document.getElementById('headerSubtitle').textContent = '先配置 API Key';
+    return;
+  }
+  switchView('jd');
+}
+
+function openInterviewView() {
+  // Check API key
+  if (!STATE.apiKey) {
+    showToast('请先在设置中配置 API Key', 'error');
+    document.querySelector('.app').classList.remove('hidden');
+    document.getElementById('setupOverlay').classList.remove('hidden');
+    document.getElementById('backBtn').classList.add('visible');
+    document.getElementById('landing-view').classList.add('hidden');
+    document.getElementById('headerTitle').textContent = '语音面试官';
+    document.getElementById('headerSubtitle').textContent = '先配置 API Key';
+    return;
+  }
+  switchView('interview');
+}
+
+function goBackToLanding() {
+  // If in interview and has active conversation, warn
+  if (STATE.currentView === 'interview' && STATE.conversation.length > 0) {
+    if (!confirm('返回首页将中断当前面试，确定吗？')) return;
+  }
+  // Stop any ongoing audio or recording
+  stopAudio();
+  if (STATE.isRecording) stopRecording();
+  switchView('landing');
+}
+
+// ==================== JD ANALYSIS ====================
+function buildJDAnalysisPrompt(company, role, jdContent) {
+  const companyStr = company || '未提供';
+  const roleStr = role || '未提供';
+
+  return `你是一位资深面试教练和招聘专家，擅长深度拆解岗位 JD，精准预判面试考察方向。
+
+## 任务
+
+对以下岗位 JD 进行全面分析，生成结构化的面试准备指南。
+
+## 目标公司
+
+${companyStr}
+
+## 目标岗位
+
+${roleStr}
+
+## 岗位 JD
+
+${jdContent}
+
+## 分析要求
+
+请严格按以下结构输出分析结果（使用 Markdown 格式）：
+
+### 一、核心意图解读
+用一段话（2-3句）翻译这个岗位背后真正要找什么样的人。不重复 JD 原文，而是解读其真实诉求。例如：这个岗位表面在招产品经理，实际需要的是一个能从 0 到 1 搭建数据驱动增长体系的人。
+
+### 二、关键业务场景
+从 JD 中提取 2-3 个具体业务场景，并说明面试中可能如何考察：
+1. **场景A** — 可能考察方式
+2. **场景B** — 可能考察方式
+3. **场景C** — 可能考察方式（如有）
+
+### 三、隐性要求解读
+找出 JD 中"优先""加分""期望""熟悉"等措辞背后的真实诉求。例如"有 0-1 经验优先"的真实含义是：这个岗位需要从零搭建的能力，而非维护现有系统。
+
+### 四、能力维度权重表
+
+| 能力维度 | 权重(1-10) | JD依据 |
+|---------|-----------|--------|
+| 产品思维 | X | 从JD中哪句话看出 |
+| 数据分析 | X | ... |
+| 执行力/项目推进 | X | ... |
+| 用户洞察 | X | ... |
+| 商业sense | X | ... |
+| 沟通协作 | X | ... |
+| AI/技术理解 | X | ... |
+
+### 五、预测面试问题（10-15 题，按类别组织）
+
+对每道题使用以下格式：
+
+**题目 X：** [具体问题]
+- **题型**：行为面试 / 产品case / 情景题 / 数据分析 / 行业认知
+- **考察维度**：该题主要考察什么能力
+- **回答方向**（3-5个关键角度）：
+  1. 角度一
+  2. 角度二
+  3. ...
+- **⚠️ 易踩坑点**：回答时需要注意避免的问题
+
+题目请覆盖以下类别：
+- 项目经验深挖（2-3题）
+- 产品设计/情境题（2-3题）
+- 数据分析/方法论（2题）
+- 公司/行业认知（2题）
+- 综合素质（2-3题）
+
+### 六、针对性准备建议
+
+3 条针对这个岗位的最重要的准备行动建议，每条含：
+- 具体做什么
+- 为什么重要（关联 JD 中的哪条要求）
+
+请使用清晰的 Markdown 格式，确保表格对齐、层级分明。直接输出分析内容，不要加"好的，我来分析"之类的开场白。`;
+}
+
+async function analyzeJD() {
+  const company = document.getElementById('jdCompany').value.trim();
+  const role = document.getElementById('jdRoleInput').value.trim();
+  const jdContent = document.getElementById('jdContent').value.trim();
+
+  if (!jdContent) {
+    showToast('请先粘贴岗位 JD 内容', 'error');
+    return;
+  }
+
+  if (!STATE.apiKey) {
+    showToast('请先配置 API Key', 'error');
+    document.getElementById('setupOverlay').classList.remove('hidden');
+    return;
+  }
+
+  // Show loading, hide previous results
+  document.getElementById('jdAnalyzeBtn').disabled = true;
+  document.getElementById('jdLoading').classList.remove('hidden');
+  document.getElementById('jdError').classList.add('hidden');
+  document.getElementById('jdResult').classList.add('hidden');
+
+  try {
+    const systemPrompt = buildJDAnalysisPrompt(company, role, jdContent);
+    const messages = [{ role: 'user', content: '请开始分析这个 JD。' }];
+
+    let response;
+    if (STATE.provider === 'deepseek') {
+      response = await callJD_API_DeepSeek(systemPrompt, messages);
+    } else {
+      response = await callJD_API_Anthropic(systemPrompt, messages);
+    }
+
+    // Render the result
+    renderJDResult(response);
+
+  } catch (error) {
+    console.error('JD analysis error:', error);
+    document.getElementById('jdError').classList.remove('hidden');
+    document.getElementById('jdError').textContent = '拆解失败: ' + error.message;
+    showToast('JD 拆解失败: ' + error.message, 'error');
+  } finally {
+    document.getElementById('jdAnalyzeBtn').disabled = false;
+    document.getElementById('jdLoading').classList.add('hidden');
+  }
+}
+
+async function callJD_API_DeepSeek(systemPrompt, messages) {
+  const apiUrl = window.location.hostname === 'localhost' ? '/api/deepseek' : 'https://api.deepseek.com/v1/chat/completions';
+
+  const chatMessages = [
+    { role: 'system', content: systemPrompt },
+    ...messages,
+  ];
+
+  const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': STATE.apiKey,
+    },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: chatMessages,
+      max_tokens: 4096,
+      temperature: 0.3,
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error?.message || `HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.choices[0].message.content;
+}
+
+async function callJD_API_Anthropic(systemPrompt, messages) {
+  const apiUrl = window.location.hostname === 'localhost' ? '/api/anthropic' : 'https://api.anthropic.com/v1/messages';
+
+  const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': STATE.apiKey,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 4096,
+      system: systemPrompt,
+      messages: messages,
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}));
+    throw new Error(err.error?.message || `HTTP ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data.content[0].text;
+}
+
+function renderJDResult(markdown) {
+  const resultDiv = document.getElementById('jdResult');
+  resultDiv.innerHTML = parseMarkdownToHTML(markdown);
+  resultDiv.classList.remove('hidden');
+
+  // Scroll to results
+  resultDiv.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Simple Markdown to HTML converter (handles tables, headers, lists, bold, etc.)
+function parseMarkdownToHTML(md) {
+  let html = md;
+
+  // Headers
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^# (.+)$/gm, '<h3>$1</h3>');
+
+  // Bold
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+  // Tables (simple: | col | col |)
+  html = html.replace(/^\|(.+)\|$/gm, (match) => {
+    const cells = match.split('|').filter(c => c.trim()).map(c => `<td>${c.trim()}</td>`).join('');
+    return `<tr>${cells}</tr>`;
+  });
+
+  // Wrap consecutive <tr>s in <table>
+  html = html.replace(/((?:<tr>.*<\/tr>\n?)+)/g, '<table>$1</table>');
+
+  // Make first row of each table a thead
+  html = html.replace(/<table><tr>(.*?)<\/tr>/, '<table><thead><tr>$1</tr></thead><tbody>');
+  html = html.replace(/<\/table>/g, '</tbody></table>');
+
+  // Unordered lists
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
+
+  // Numbered lists (1. item)
+  html = html.replace(/^\d+\.\s+(.+)$/gm, '<li>$1</li>');
+
+  // Horizontal rules
+  html = html.replace(/^---$/gm, '<hr>');
+
+  // Paragraphs (double newlines)
+  const blocks = html.split(/\n\n+/);
+  html = blocks.map(block => {
+    block = block.trim();
+    if (!block) return '';
+    // Skip blocks that are already HTML tags
+    if (/^<(h3|table|ul|ol|li|hr|tr|thead|tbody)/.test(block)) return block;
+    return `<p>${block}</p>`;
+  }).join('\n');
+
+  // Line breaks within paragraphs
+  html = html.replace(/\n(?!\s*<)/g, '<br>');
+
+  // Clean up empty tags
+  html = html.replace(/<p>\s*<\/p>/g, '');
+  html = html.replace(/<ul>\s*<\/ul>/g, '');
+
+  return html;
+}
+
+// ==================== MODIFIED: saveSettings for landing flow ====================
+const originalSaveSettings = saveSettings;
+saveSettings = function() {
+  originalSaveSettings();
+
+  // After saving settings, switch to interview view if we came from landing
+  if (STATE.currentView === 'landing' || STATE.currentView === 'jd') {
+    switchView('interview');
+  }
+};
+
+// ==================== MODIFIED: openSettings returns to correct flow ====================
+const originalOpenSettings = openSettings;
+openSettings = function() {
+  originalOpenSettings();
+};
+
+// ==================== MODIFIED: resetInterview returns to landing ====================
+const originalResetInterview = resetInterview;
+resetInterview = function() {
+  if (STATE.currentView === 'interview' && STATE.conversation.length > 0) {
+    if (!confirm('确定要重置面试吗？当前对话将被清空。')) return;
+  }
+  originalResetInterview();
+  goBackToLanding();
+};
 
 // ==================== START ====================
 init();
